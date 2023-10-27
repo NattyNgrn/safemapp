@@ -23,7 +23,6 @@ function Map() {
     <div className="w-screen">
     <GoogleMap zoom={17} center={center} mapContainerClassName="map-container">
     </GoogleMap>
-    <Navbar></Navbar>
     </div>
   );
 }
