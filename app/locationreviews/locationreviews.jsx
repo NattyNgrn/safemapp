@@ -1,7 +1,7 @@
 export default function Locationreviews(){
     return(
         <div>
-            <H1>LOCATION REVIEWS PAGE</H1>
+            <h1>LOCATION REVIEWS PAGE</h1>
         </div>
     )
 }

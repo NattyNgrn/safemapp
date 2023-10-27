@@ -1,7 +1,7 @@
 export default function Login(){
     return(
         <div>
-            <H1>LOGIN PAGE</H1>
+            <h1>LOGIN PAGE</h1>
         </div>
     )
 }

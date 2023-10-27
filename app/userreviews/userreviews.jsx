@@ -1,7 +1,7 @@
 export default function Userreviews(){
     return(
         <div>
-            <H1>USER REVIEWS PAGE</H1>
+            <h1>USER REVIEWS PAGE</h1>
         </div>
     )
 }

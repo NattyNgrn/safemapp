@@ -1,7 +1,7 @@
 export default function Individual(){
     return(
         <div>
-            <H1>INDIVIDUAL REVIEW PAGE</H1>
+            <h1>INDIVIDUAL REVIEW PAGE</h1>
         </div>
     )
 }
