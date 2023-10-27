@@ -2,6 +2,7 @@
   "name": "safemapp",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2",
     "@prisma/client": "^5.5.2",
+    "@react-google-maps/api": "^2.19.2",
+    "load-google-maps-api": "^2.0.2",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18"
