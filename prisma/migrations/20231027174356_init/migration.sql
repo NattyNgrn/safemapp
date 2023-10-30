@@ -2,7 +2,7 @@
 CREATE TABLE "user" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
-    "age" INTEGER NOT NULL,
+    "DOB" TIMESTAMP(3) NOT NULL,
     "gender" TEXT NOT NULL,
     "sexuality" TEXT NOT NULL,
     "ethnicity" TEXT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE "reviews" (
     "createdat" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "location" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
-    "photosurl" TEXT NOT NULL,
+    "photosurl" TEXT NULL,
     "notes" TEXT,
 
     CONSTRAINT "reviews_pkey" PRIMARY KEY ("id")

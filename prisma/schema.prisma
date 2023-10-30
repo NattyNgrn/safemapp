@@ -14,12 +14,12 @@ datasource db {
 model user {
   id        Int         @id @default(autoincrement())
   name      String
-  age       Int
+  DOB       DateTime
   gender    String
   sexuality String
   ethnicity String
   race      String
-  photourl  String
+  photourl  String?
   username  String      @unique
   address   String
   reviews   reviews[]
@@ -33,7 +33,7 @@ model reviews {
   location  String
   user      user     @relation(fields: [userId], references: [id])
   userId    Int
-  photosurl String
+  photosurl String?
   notes     String?
 }
 
