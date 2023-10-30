@@ -7,7 +7,7 @@ import Navbar from "../navbar";
 
 function Map() {
 const {isLoaded} = useLoadScript({
-  googleMapsApiKey : "AIzaSyD73IHaXf6002ezY86TEGYElZpLlNJ6ZRU"
+  googleMapsApiKey : process.env.NEXT_PUBLIC_API_KEY
 })
 
 function Map(){
