@@ -1,31 +1,44 @@
-import { useEffect, useRef } from "react";
+// "use client"
+// import { CldUploadWidget } from 'next-cloudinary';
 
-const UploadWidget = ({setUrl, setUploading}) => {
-    const cloudinaryRef = useRef();
-    const widgetRef = useRef();
-    useEffect(()=> {
-        cloudinaryRef.current = window.cloudinary;
-        widgetRef.current = cloudinaryRef.current.createUploadWidget({
-            cloudName: 'do0w2gqax',
-            uploadPreset: 'yj6v31wv'
-        }, function(error, result) {
-            if(error){
-                setUploading(false);
-                return;
-            }
-            if(!result || result.event != "success") {
-                setUploading(true);
-                return;
-            } 
-            setUploading(false);
-            
-            console.log(result)
-            setUrl(result.info.url);
-        });
-    }, [])
-    return (
-        <button onClick={()=> widgetRef.current.open()} class="bg-amber-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md"> Upload </button>
-    )
-}
+// export const UnsignedUpload = ({ options, setPhotourl }) => {
+//   window.cloudina
+//   return (
+//     <>
+//       <CldUploadWidget
+//         signatureEndpoint={}
+//         uploadPreset="next-cloudinary-unsigned"
+//         onUpload={(result, widget) => {
+//           console.log('UnsignedUpload:widget:upload', result);
+//           setPhotourl(result?.info);
+//           widget.close();
+//         }}
+//         onQueuesStart={(result, { widget, minimize }) => {
+//           console.log('UnsignedUpload:widget:queues-start', widget);
+//         }}
+//         onOpen={(widget) => {
+//           console.log('UnsignedUpload:widget:open', widget);
+//         }}
+//         onClose={(widget) => {
+//           console.log('UnsignedUpload:widget:close', widget);
+//         }}
+//         options={options}
+//       >
+//         {({ open }) => {
+//           function handleOnClick(e) {
+//             setPhotourl(undefined);
+//             e.preventDefault();
+//             open();
+//           }
+//           return (
+//             <button onClick={handleOnClick}>
+//               Upload an Image
+//             </button>
+//           );
+//         }}
+//       </CldUploadWidget>
 
-export default UploadWidget;
+//       {/* <p>URL: { resource?.secure_url }</p> */}
+//     </>
+//   )
+// }

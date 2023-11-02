@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 function Navbar(){
 
@@ -12,6 +13,7 @@ function Navbar(){
                     <Link href="/" ><button className="hover:bg-red-300 p-px px-2 rounded mx-2 bg-red-200 font-['Urbanist'] text-base text-stone-800" >MAP</button></Link>
                     <Link href="/writeareview" ><button className="hover:bg-red-300 p-px px-2 rounded mx-2 bg-red-200 font-['Urbanist'] text-base text-stone-800" >WRITE A REVIEW</button></Link>
                     <Link href="/profile" ><button className="hover:bg-red-300 p-px px-2 rounded mx-2 bg-red-200 font-['Urbanist'] text-base text-stone-800">PROFILE</button></Link>
+                    <UserButton className="p-px px-4" afterSignOutUrl="/"/>
                 </div>
             </div>
         
