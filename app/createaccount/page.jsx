@@ -2,10 +2,14 @@
 import UploadWidget, { UnsignedUpload } from "../uploadwidget"
 import { PrismaClient } from "@prisma/client"
 import { useState } from "react";
+import {addUserToDB} from "../serveractions"
 
 
 function CreateAccount(){
 
+    function tempFunc() {
+        addUserToDB("username", "named", new Date(), "race", "ethnicity", "gender", "sexuality", "photourl", "address")
+    }
     const [username, SetUsername] = useState("");
     const [name, SetName] = useState("");
     const [DOB, SetDOB] = useState();
@@ -14,6 +18,7 @@ function CreateAccount(){
     const [gender, SetGender] = useState("");
     const [sexuality, SetSexuality] = useState("");
     const [photourl, SetPhotourl] = useState("");
+    const [address, setAddress] = useState("");
     const [uploading, setUploading] = useState(false);
 
     console.log(photourl);
@@ -28,7 +33,7 @@ function CreateAccount(){
                 <label> Ethnicity: <input className="m-8" type="text" value={ethnicity} onChange={(e) => {SetEthnicity(e.target.value)}}></input> </label>
                 <label> Gender: <input className="m-8" type="text" value={gender} onChange={(e) => {SetGender(e.target.value)}}></input> </label>
                 <label> Sexuality: <input className="m-8" type="text" value={sexuality} onChange={(e) => {SetSexuality(e.target.value)}}></input> </label>
-                <button className="rounded-md bg-indigo-600 px-3 py-2 shadow-sm hover:bg-indigo-500" >Create Account</button>
+                <button className="rounded-md bg-indigo-600 px-3 py-2 shadow-sm hover:bg-indigo-500" onClick={tempFunc}>Create Account</button>
             </form>
         </div>
     )
