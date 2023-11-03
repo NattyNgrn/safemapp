@@ -1,4 +1,4 @@
-import Review from "../indreview/cardsforloc"
+import Review from "../indReview"
 
 function UserReviews(){
     //map through DB user reviews stretch goal last priority. 

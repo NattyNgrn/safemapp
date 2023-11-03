@@ -3,9 +3,10 @@
 import prisma from "./db";
 
 //add new user to the DB for create account
-async function addUserToDB(username, named, DOB, race, ethnicity, gender, sexuality, photourl, address){
+async function addUserToDB(clerkid, username, named, DOB, race, ethnicity, gender, sexuality, photourl, address){
     await prisma.user.create({
         data: {
+            clerkid: clerkid,
             username: username,
             name: named,
             DOB: DOB,
@@ -22,12 +23,13 @@ async function addUserToDB(username, named, DOB, race, ethnicity, gender, sexual
 
 // edit profile
 
-async function editProfile(username, named, gender, sexuality, photourl, address){
+async function editProfile(clerkid, username, named, gender, sexuality, photourl, address){
     await prisma.user.update({
         where: {
-            username: username
+            clerkid: clerkid
         },
         data:{
+            username: username,
             name: named,
             gender: gender,
             sexuality: sexuality,
@@ -38,10 +40,10 @@ async function editProfile(username, named, gender, sexuality, photourl, address
 }
 
 //get individual profile
-async function getIndividual(id) {
+async function getIndividual(clerkid) {
     const user = await prisma.user.findUnique({
         where: {
-            id: id
+            clerkid: clerkid
         },
         select: {
             username: true,
@@ -65,6 +67,7 @@ async function getAllReviews(location) {
             location: location
         },
         select: {
+            clerkid: true,
             id: true,
             rating: true,
             createdat: true,
@@ -101,7 +104,7 @@ async function addReviewToDB(review){
         data: {
             rating: review.rating, 
             location: review.location,  
-            userid: 1, 
+            clerkid: review.clerkid,
             photourl: review.photourl,
             notes: review.notes
         }

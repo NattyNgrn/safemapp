@@ -1,5 +1,5 @@
 "use client"
-import Review from "./cardsforloc"
+import Review from "../indReview"
 
 function Individual(){
     return(
