@@ -12,7 +12,7 @@ datasource db {
 }
 
 model user {
-  id        Int         @id @default(autoincrement())
+  clerkid   String      @id
   name      String
   DOB       DateTime
   gender    String
@@ -22,20 +22,20 @@ model user {
   photourl  String?
   username  String      @unique
   address   String
-  clerkid   String      @unique
 }
 
 model reviews {
   id        Int      @id @default(autoincrement())
+  clerkid   String
   rating    Int
   createdat DateTime @default(now())
   location  String
-  userId    Int
   photosurl String?
   notes     String?
 }
 
 model favorites {
-  id       Int    @id @default(autoincrement())
-  location String
+  id        Int    @id @default(autoincrement())
+  clerkid   String
+  location  String
 }

@@ -59,7 +59,41 @@ async function getIndividual(id) {
 }
 //get all reviews
 
+async function getAllReviews(location) {
+    const reviews = await prisma.reviews.findMany({
+        where: {
+            location: location
+        },
+        select: {
+            id: true,
+            rating: true,
+            createdat: true,
+            location: true,
+            photosurl: true,
+            notes: true
+        }
+    })
+    return reviews;
+}
+
 //get individual review
+
+async function getIndividualReview(id) {
+    const review = await prisma.reviews.findUnique({
+        where: {
+            id: id
+        },
+        select: {
+            clerkid: true,
+            rating: true,
+            createdat: true,
+            location: true,
+            photosurl: true,
+            notes: true
+        }
+    })
+    return user;
+}
 
 //add a review
 async function addReviewToDB(review){
@@ -74,4 +108,5 @@ async function addReviewToDB(review){
     });
 }
 
-export {addUserToDB, editProfile, getIndividual, addReviewToDB};
+
+export {addUserToDB, editProfile, getIndividual, addReviewToDB, getAllReviews};

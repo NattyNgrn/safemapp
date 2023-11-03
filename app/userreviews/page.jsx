@@ -1,6 +1,6 @@
 import Review from "../indreview/cardsforloc"
 
-function Userreviews(){
+function UserReviews(){
     //map through DB user reviews stretch goal last priority. 
     return(
         <div>

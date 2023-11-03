@@ -1,4 +1,4 @@
-import Map from "./home/page"
+import Map from "./map/page"
 import Navbar from "./navbar"
 export default function Home(){
   return (

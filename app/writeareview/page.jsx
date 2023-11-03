@@ -3,7 +3,7 @@ import Navbar from "../navbar";
 import { addReviewToDB } from "../serveractions";
 import { useState } from "react";
 
-function Writereview(){
+function WriteReview(){
 
     const [review, setReview] = useState({
         rating: 4, 
