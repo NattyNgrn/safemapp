@@ -38,8 +38,25 @@ async function editProfile(username, named, gender, sexuality, photourl, address
 }
 
 //get individual profile
-async function individual(username, named, DOB, race, ethnicity, gender, sexuality, photourl, address) {
-    
+async function getIndividual(clerkid) {
+    const user = await prisma.user.findUnique({
+        where: {
+            clerkid: clerkid,
+            username: "nattyngrn"
+        },
+        select: {
+            username: true,
+            name: true,
+            DOB: true,
+            race: true,
+            ethnicity: true,
+            gender: true,
+            sexuality: true,
+            photourl: true,
+            address: true,
+        }
+    })
+    return user;
 }
 //get all reviews
 
@@ -47,4 +64,4 @@ async function individual(username, named, DOB, race, ethnicity, gender, sexuali
 
 //add a review
 
-export {addUserToDB, editProfile};
+export {addUserToDB, editProfile, getIndividual};

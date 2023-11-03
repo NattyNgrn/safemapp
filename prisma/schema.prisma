@@ -22,6 +22,7 @@ model user {
   photourl  String?
   username  String      @unique
   address   String
+  clerkid   String      @unique
   reviews   reviews[]
   favorites favorites[]
 }

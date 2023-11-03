@@ -1,8 +1,17 @@
+"use client"
 import { UserButton } from "@clerk/nextjs";
 import Navbar from "../navbar"
+import { useAuth } from '@clerk/clerk-react';
+import { getIndividual } from "../serveractions";
 
 
 export default function Profile(){
+
+    const {userId} = useAuth();
+    console.log(userId)
+
+    getIndividual(userId);
+
     return(
         <div>
             <Navbar></Navbar>
