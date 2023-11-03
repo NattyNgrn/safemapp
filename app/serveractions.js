@@ -62,5 +62,16 @@ async function getIndividual(id) {
 //get individual review
 
 //add a review
+async function addReviewToDB(review){
+    await prisma.reviews.create({
+        data: {
+            rating: review.rating, 
+            location: review.location,  
+            userid: 1, 
+            photourl: review.photourl,
+            notes: review.notes
+        }
+    });
+}
 
-export {addUserToDB, editProfile, getIndividual};
+export {addUserToDB, editProfile, getIndividual, addReviewToDB};
