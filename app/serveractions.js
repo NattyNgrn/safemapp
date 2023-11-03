@@ -38,11 +38,10 @@ async function editProfile(username, named, gender, sexuality, photourl, address
 }
 
 //get individual profile
-async function getIndividual(clerkid) {
+async function getIndividual(id) {
     const user = await prisma.user.findUnique({
         where: {
-            clerkid: clerkid,
-            username: "nattyngrn"
+            id: id
         },
         select: {
             username: true,
