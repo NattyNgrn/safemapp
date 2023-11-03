@@ -109,4 +109,4 @@ async function addReviewToDB(review){
 }
 
 
-export {addUserToDB, editProfile, getIndividual, addReviewToDB, getAllReviews};
+export {addUserToDB, editProfile, getIndividual, addReviewToDB, getAllReviews, getIndividualReview};
