@@ -9,7 +9,7 @@ function LocationReviews(){
 
     useEffect(()=> {
         getAllReviews("nipponcha").then(result => setReviews(result))
-    }, [])
+    }, []);
 
 
     
@@ -17,7 +17,7 @@ function LocationReviews(){
         <div className="grid-cols-1 sm:grid md:grid-cols-4" >
             {
             reviews.map((review) => 
-                <Review review={review} ></Review>
+                <Review key={review.id} review={review} ></Review>
             )}
         </div>
     )
