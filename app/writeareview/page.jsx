@@ -23,7 +23,7 @@ function WriteReview(){
     return(
         <div>
             <Navbar></Navbar>
-            <div className="col-span-full space-y-10">
+            <div className="col-span-full space-y-10 ml-40">
                 <form className="flex items-center flex-col m-8 space-y-20" >
                     <div class="flex items-center mb-4">
                         <label className="m-6"> Location:  </label>
