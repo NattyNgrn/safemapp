@@ -23,12 +23,12 @@ export default function Profile(){
             <Navbar></Navbar>
             <div className="px-4 sm:px-0 flex items-center flex-col">
                 <img src={user.user?.imageUrl} className="m-8 mx-auto rounded-full w-96 h-96 shadow-xl dark:shadow-gray-800"  />
-                <h1 className="m-8 text-xl font-['Urbanist'] text-stone-800">Username: {person?.username} </h1>
-                <h1 className="m-8 text-xl font-['Urbanist'] text-stone-800">Name: {person?.name} </h1>
-                <h1 className="m-8 text-xl font-['Urbanist'] text-stone-800">Race: {person?.race} </h1>
-                <h1 className="m-8 text-xl font-['Urbanist'] text-stone-800">Ethnicity: {person?.ethnicity} </h1>
-                <h1 className="m-8 text-xl font-['Urbanist'] text-stone-800">Gender: {person?.gender} </h1>
-                <h1 className="m-8 text-xl font-['Urbanist'] text-stone-800">Sexuality: {person?.sexuality} </h1>
+                <h1 className="m-8 text-xl">Username: {person?.username} </h1>
+                <h1 className="m-8 text-xl">Name: {person?.name} </h1>
+                <h1 className="m-8 text-xl">Race: {person?.race} </h1>
+                <h1 className="m-8 text-xl ">Ethnicity: {person?.ethnicity} </h1>
+                <h1 className="m-8 text-xl">Gender: {person?.gender} </h1>
+                <h1 className="m-8 text-xl">Sexuality: {person?.sexuality} </h1>
             </div>
             
 

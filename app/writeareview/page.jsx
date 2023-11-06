@@ -2,17 +2,20 @@
 import Navbar from "../navbar";
 import { addReviewToDB } from "../serveractions";
 import { useState } from "react";
+import { Rating } from "@material-tailwind/react";
+import { useUser, useAuth } from '@clerk/clerk-react';
 
 function WriteReview(){
-
+    const {userId} = useAuth();
     const [review, setReview] = useState({
+        clerkid: userId,
         rating: 4, 
         location: "",
-        photourl: "",
+        photosurl: "",
         notes: ""
     });
 
-    function tempfunc(e) {
+    function addReview(e) {
         e.preventDefault();
         addReviewToDB(review);
     }
@@ -20,17 +23,44 @@ function WriteReview(){
     return(
         <div>
             <Navbar></Navbar>
-            <div className="flex items-center flex-col">
-                <form className="flex items-center flex-col" >
-                    <label> Location: <input className="m-8" onChange={(e) => setReview({...review, location: e.target.value})}/> </label>
+            <div className="col-span-full space-y-10">
+                <form className="flex items-center flex-col m-8 space-y-20" >
+                    <div class="flex items-center mb-4">
+                        <label className="m-6"> Location:  </label>
+                        <input className="rounded-lg"  onChange={(e) => setReview({...review, location: e.target.value})}/>
+                    </div>
+                    <div class="flex items-center mb-4">
+                    <label for="notes" className="block ml-6 m-6" > Notes: </label>
+                    <textarea id="notes" className="rounded-lg" onChange={(e) => setReview({...review, notes: e.target.value})}></textarea>
+                    </div>
 
-                    <label> Notes: <textarea className="m-8" onChange={(e) => setReview({...review, notes: e.target.value})}></textarea> </label>
+                    <div className="flex flex-col gap-4">
+                    <label>Rating: <Rating unratedColor="red" ratedColor="amber" /></label>
+                    </div>
+                    
+                    <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" className="w-6 h-6"/> 
+                    <label for="default-checkbox" className="ml-4">Gender</label>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" className="w-6 h-6"/> 
+                    <label for="default-checkbox" className="ml-4">Sexuality</label>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" className="w-6 h-6"/> 
+                    <label for="default-checkbox" className="ml-4">Race</label>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" className="w-6 h-6"/> 
+                    <label for="default-checkbox" className="ml-4">Ethnicity</label>
+                    </div>
+
                     
 
-                    <label>RatING <input className="m-8" onChange={(e) => setReview({...review, rating: e.target.value})}></input></label>
-
-                    <h1 className="m-8" onChange={(e) => setReview({...review, photourl: e.target.value})}>UPLOAD PHOTO HERE</h1>
-                    <button className="rounded-md bg-indigo-600 px-3 py-2 shadow-sm hover:bg-indigo-500" onClick={tempfunc}>Create Account</button>
+                    <button className="hover:bg-red-300 p-px px-2 rounded mx-2 bg-red-200 text-3xl" onClick={addReview}>Submit</button>
                 </form>
             </div>
         </div>
