@@ -3,13 +3,12 @@
 import prisma from "./db";
 
 //add new user to the DB for create account
-async function addUserToDB(clerkid, username, named, DOB, race, ethnicity, gender, sexuality, photourl, address){
+async function addUserToDB(clerkid, username, named, race, ethnicity, gender, sexuality, photourl, address){
     await prisma.user.create({
         data: {
             clerkid: clerkid,
             username: username,
             name: named,
-            DOB: DOB,
             race: race,
             ethnicity: ethnicity,
             gender: gender,
@@ -48,7 +47,6 @@ async function getIndividual(clerkid) {
         select: {
             username: true,
             name: true,
-            DOB: true,
             race: true,
             ethnicity: true,
             gender: true,
@@ -57,8 +55,11 @@ async function getIndividual(clerkid) {
             address: true,
         }
     })
+    console.log(user);
     return user;
 }
+
+
 //get all reviews
 
 async function getAllReviews(location) {

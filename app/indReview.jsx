@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 function Review({review}){
 
@@ -14,9 +15,16 @@ function Review({review}){
             {review.location}
           </h5>
 
-          <h5 className="m-8 mb-2 text-3xl font-medium leading-tight font-['Urbanist'] text-stone-800 dark:text-stone-800">
+          <h5 className="mb-2 text-2xl font-medium leading-tight font-['Urbanist'] text-stone-800 dark:text-stone-800">
+            {review.createdat.toDateString()}
+          </h5>
+
+          <h5 className="mb-2 text-3xl font-medium leading-tight font-['Urbanist'] text-stone-800 dark:text-stone-800">
             {review.rating}
           </h5>
+
+          <Link href="/indreview" ><button> SEE MORE </button></Link>
+
         </div>
 
       </div>

@@ -36,4 +36,4 @@ function WriteReview(){
         </div>
     )
 }
-export default Writereview;
+export default WriteReview;
