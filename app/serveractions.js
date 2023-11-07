@@ -110,6 +110,7 @@ async function addReviewToDB(review){
             notes: review.notes
         }
     });
+    return 0;
 }
 
 

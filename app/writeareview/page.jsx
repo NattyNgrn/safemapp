@@ -15,9 +15,9 @@ function WriteReview(){
         notes: ""
     });
 
-    function addReview(e) {
+    async function addReview(e) {
         e.preventDefault();
-        addReviewToDB(review);
+        await addReviewToDB(review);
     }
 
     return(
@@ -36,7 +36,7 @@ function WriteReview(){
 
                     <div className="flex items-center scale-150">
                     <Rating 
-                    onChange={(value)=>setReview({...review, rating: value})}
+                    onChange={(event, newValue)=>setReview({...review, rating: newValue})}
                     />
                     </div>
                     
