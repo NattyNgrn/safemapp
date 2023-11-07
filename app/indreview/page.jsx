@@ -28,7 +28,7 @@ function Individual({searchParams}){
                     <h1 className="text-3xl" >USER: {user?.username} </h1>
                     <h1 className="text-3xl" >LOCATION: {review?.location} </h1>
                     <h1 className="text-3xl" >DATE: {review?.createdat.toDateString()} </h1>
-                    <Rating className="scale-150" value={review?.rating} readOnly />
+                    <Rating className="scale-150" value={parseInt(review?.rating)} readOnly />
                     <h1 className="text-3xl">RATING: {review?.rating} </h1>
                     <h1 className="text-3xl">NOTES: {review?.notes} </h1>
                     <h1 className="text-3xl">PHOTOS: {review?.photosurl} </h1>

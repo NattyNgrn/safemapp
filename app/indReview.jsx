@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Rating from '@mui/material/Rating';
 
 function Review({review}){
 
@@ -19,11 +20,11 @@ function Review({review}){
             {review.createdat.toDateString()}
           </h5>
 
-          <h5 className="mb-2 text-3xl font-medium leading-tight">
-            {review.rating}
-          </h5>
+          
 
-          <Link href={`/indreview?id=${review.id}`} ><button className="underline"> SEE MORE </button></Link>
+          <Rating  value={review.rating} readOnly/>
+
+          <Link href={`/indreview?id=${review.id}`} ><button className="underline text-base"> SEE MORE </button></Link>
 
         </div>
 
