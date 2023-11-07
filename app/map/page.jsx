@@ -2,7 +2,8 @@
 import { GoogleMap, useLoadScript} from "@react-google-maps/api";
 import { useMemo} from "react";
 import "./map.css"
-import Navbar from "../navbar";
+import usePlacesAutocomplete, {getGeocode, getLatLng,} from "use-places-autocomplete";
+
 
 
 function Map() {
