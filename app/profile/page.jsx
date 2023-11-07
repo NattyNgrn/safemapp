@@ -14,7 +14,6 @@ export default function Profile(){
     const user = useUser();
 
     useEffect(() => {
-        console.log("in use effect")
         getIndividual(userId).then((result)=>{setPerson(result)});
     }, []);    
 

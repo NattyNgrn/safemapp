@@ -3,7 +3,7 @@ import Link from "next/link";
 function Review({review}){
 
   return(
-      <div className="m-8 block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-emerald-900 hover:bg-emerald-200">
+      <div className="m-8 block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] text-amber-400 dark:bg-indigo-900 hover:bg-indigo-500 hover:text-stone-800">
         
           <image
             className="rounded-t-lg"
@@ -15,15 +15,15 @@ function Review({review}){
             {review.location}
           </h5>
 
-          <h5 className="mb-2 text-2xl font-medium leading-tight dark:text-stone-800">
+          <h5 className="mb-2 text-2xl font-medium leading-tight">
             {review.createdat.toDateString()}
           </h5>
 
-          <h5 className="mb-2 text-3xl font-medium leading-tight dark:text-stone-800">
+          <h5 className="mb-2 text-3xl font-medium leading-tight">
             {review.rating}
           </h5>
 
-          <Link href="/indreview" ><button> SEE MORE </button></Link>
+          <Link href={`/indreview?id=${review.id}`} ><button className="underline"> SEE MORE </button></Link>
 
         </div>
 

@@ -96,7 +96,7 @@ async function getIndividualReview(id) {
             notes: true
         }
     })
-    return user;
+    return review;
 }
 
 //add a review
