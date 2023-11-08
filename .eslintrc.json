@@ -1,3 +1,6 @@
 {
+  "globals": {
+    "google": "readonly"
+},
   "extends": "next/core-web-vitals"
 }

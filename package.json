@@ -26,6 +26,7 @@
     "next-cloudinary": "^5.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-geocode": "^1.0.0-alpha.1",
     "use-places-autocomplete": "^4.0.1"
   },
   "devDependencies": {
