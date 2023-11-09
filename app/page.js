@@ -6,6 +6,7 @@ import { useAuth } from "@clerk/nextjs"
 import CreateAccount from "./createaccount/page";
 import { getIndividual } from "./serveractions";
 import Map2 from "./mapcomp";
+import InitMap from "./mappt2";
 
 function Home(){
   const {userId} = useAuth();

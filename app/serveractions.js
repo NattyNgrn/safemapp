@@ -22,7 +22,7 @@ async function addUserToDB(clerkid, username, named, race, ethnicity, gender, se
 
 // edit profile
 
-async function editProfile(clerkid, username, named, gender, sexuality, photourl, address){
+async function editProfile(clerkid, username, named, gender, race, ethnicity, sexuality, photourl, address){
     await prisma.user.update({
         where: {
             clerkid: clerkid
@@ -31,6 +31,8 @@ async function editProfile(clerkid, username, named, gender, sexuality, photourl
             username: username,
             name: named,
             gender: gender,
+            race: race,
+            ethnicity: ethnicity,
             sexuality: sexuality,
             photourl: photourl,
             address: address
