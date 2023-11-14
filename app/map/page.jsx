@@ -8,7 +8,7 @@ import { useAuth } from "@clerk/nextjs";
 
 function Map() {
   
-
+  
   const [marker, setMarker] = useState(null);
   const [selected, setSelected] = useState(null);
   const [placeInfo, setPlaceInfo] = useState("");
@@ -29,7 +29,10 @@ function Map() {
               "X-Goog-Api-Key": process.env.NEXT_PUBLIC_API_KEY,
               "X-Goog-FieldMask": "*"
             },
-            body: JSON.stringify({textQuery: "Pizza in Williamsburg Brooklyn"})
+            body: JSON.stringify({
+              textQuery: "Pizza in Williamsburg Brooklyn",
+              
+            })
           }
         );
         const data = await response.json();

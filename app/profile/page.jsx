@@ -1,10 +1,9 @@
 "use client"
-import { UserButton } from "@clerk/nextjs";
 import Navbar from "../navbar"
 import { useUser, useAuth } from '@clerk/clerk-react';
 import { getIndividual } from "../serveractions";
 import { useState, useEffect } from "react";
-import { UserProfile } from '@clerk/nextjs';
+import { editProfile } from "../serveractions";
 
 export default function Profile(){
 
@@ -17,6 +16,48 @@ export default function Profile(){
         getIndividual(userId).then((result)=>{setPerson(result)});
     }, []);    
 
+    const [showEdit, setShowEdit] = useState(false);
+
+    const [username, setUsername] = useState("")
+    const [name, setName] = useState("")
+    const [gender, setGender] = useState("")
+    const [sexuality, SetSexuality] = useState("")
+    const [address, setAddress] = useState("")
+
+    function edit(){
+        setShowEdit(true)
+    }
+    function cancel(){
+        setShowEdit(false);
+    }
+    
+    async function save(){
+        await editProfile(userId, person.username, person.name, person.gender, person.race, person.ethnicity, person.sexuality, person.address);
+        setShowEdit(false);
+    }
+    if (showEdit){
+
+        return(
+            <div className="flex items-center flex-col">
+            <h1 className="m-8 font-bold">Edit Your Profile</h1>
+            <form className="flex items-center flex-col">
+                <label> Username: <input className="m-8" type="text" value={person?.username} onChange={(e) => {setPerson({...person, username: e.target.value})}}></input> </label>
+                <label> Name: <input className="m-8" type="text" value={person?.name} onChange={(e) => {setPerson({...person, name: e.target.value})}}></input> </label>
+                <label> Race: <input className="m-8" type="text" value={person?.race} onChange={(e) => {setPerson({...person, race: e.target.value})}}></input> </label>
+                <label> Ethnicity: <input className="m-8" type="text" value={person?.ethnicity} onChange={(e) => {setPerson({...person, ethnicity: e.target.value})}}></input> </label>
+                <label> Gender: <input className="m-8" type="text" value={person?.gender} onChange={(e) => {setPerson({...person, gender: e.target.value})}}></input> </label>
+                <label> Sexuality: <input className="m-8" type="text" value={person?.sexuality} onChange={(e) => {setPerson({...person, sexuality: e.target.value})}}></input> </label>
+                <label> Address: <input className="m-8" type="text" value={person?.address} onChange={(e) => {setPerson({...person, address: e.target.value})}}></input> </label>
+
+                <button className="p-2 hover:bg-violet-500 rounded mx-2 bg-violet-400 text-3xl font-bold" onClick={save}>Save</button>
+                <button className="m-8 p-2 hover:bg-violet-500 rounded mx-2 bg-violet-400 text-3xl font-bold" onClick={cancel}>Cancel</button>
+            </form>
+        </div>
+        )
+    }
+
+    
+    if (!showEdit){
     return(
         <div>
             <Navbar></Navbar>
@@ -31,11 +72,12 @@ export default function Profile(){
                     <h1 className="m-8">Sexuality: {person?.sexuality} </h1>
                     <h1 className="m-8">Address: {person?.address} </h1>
 
-                    <button className="hover:bg-red-300 p-px px-2 rounded mx-2 bg-red-200 " >Edit Profile</button>
+                    <button className="p-2 hover:bg-violet-500 rounded mx-2 bg-violet-400 text-4xl font-bold" onClick={edit}>Edit Profile</button>
                 </div>
             </div>
             
 
         </div>
     )
+}
 }

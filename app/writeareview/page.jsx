@@ -34,8 +34,8 @@ function WriteReview(){
                     <textarea className="rounded-lg" onChange={(e) => setReview({...review, notes: e.target.value})}></textarea>
                     </div>
 
-                    <div className="flex items-center scale-150">
-                    <Rating 
+                    <div className="flex items-center scale-150 ">
+                    <Rating className="scale-150" 
                     onChange={(event, newValue)=>setReview({...review, rating: newValue})}
                     />
                     </div>
@@ -62,7 +62,7 @@ function WriteReview(){
 
                     
 
-                    <button className="p-4 hover:bg-red-300 rounded mx-2 bg-red-200 text-3xl" onClick={addReview}>Submit</button>
+                    <button className="p-4 hover:bg-violet-500 rounded mx-2 bg-violet-400 text-3xl " onClick={addReview}>Submit</button>
                 </form>
             </div>
         </div>
