@@ -5,6 +5,7 @@ import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import usePlacesAutocomplete, {getGeocode, getLatLng,} from "use-places-autocomplete";
 import { getIndividual } from "../serveractions";
 import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
 
 function Map() {
   
@@ -90,7 +91,7 @@ function Map() {
               position={{ lat: selected.lat, lng: selected.lng }}
               onCloseClick={() => { setSelected(false); }}
             >
-            <h2>hullo</h2>
+            <h2>Write a review</h2>
             </InfoWindowF>
           ) : null}
       
