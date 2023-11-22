@@ -11,7 +11,6 @@ function Individual({searchParams}){
     const [user, setUser] = useState(undefined);
 
     useEffect(() => {
-        "use server"
         const temp = async () => {
             const tempReview = await getIndividualReview(parseInt(searchParams.id));
             const tempUser = await getIndividual(tempReview.clerkid);
