@@ -6,39 +6,35 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
 model user {
-  id        Int         @id @default(autoincrement())
+  clerkid   String      @id
   name      String
-  age       Int
   gender    String
   sexuality String
   ethnicity String
   race      String
-  photourl  String
+  photourl  String?
   username  String      @unique
   address   String
-  reviews   reviews[]
-  favorites favorites[]
 }
 
 model reviews {
   id        Int      @id @default(autoincrement())
+  clerkid   String
   rating    Int
   createdat DateTime @default(now())
   location  String
-  user      user     @relation(fields: [userId], references: [id])
-  userId    Int
-  photosurl String
+  photosurl String?
   notes     String?
 }
 
 model favorites {
-  id       Int    @id @default(autoincrement())
-  location String
-  user     user   @relation(fields: [userId], references: [id])
-  userId   Int
+  id        Int    @id @default(autoincrement())
+  clerkid   String
+  location  String
 }
