@@ -5,6 +5,7 @@ import Navbar from "./navbar"
 import { useAuth } from "@clerk/nextjs"
 import CreateAccount from "./createaccount/page";
 import { getIndividual } from "./serveractions";
+import MyMapComponent from "./map/mappt2";
 
 
 function Home(){
